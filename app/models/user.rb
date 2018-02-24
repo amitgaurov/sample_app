@@ -70,6 +70,21 @@ end
     Micropost.where("user_id = ?", id)
   end
 
+  
+
+
+def self.search(search)
+  if search
+    where('name LIKE ?', "%#{search}%")
+  else
+    all
+  end
+end
+
+
+
+
+
  private
 
     # Converts email to all lower-case.
