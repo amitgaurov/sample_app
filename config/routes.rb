@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
- root             'static_pages#home'
+
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
@@ -15,10 +15,19 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
    post   'login'  => 'home#search'
 
+    root to: "static_pages#home"
+
+
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
+
+  
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+   
 
 
 end

@@ -12,16 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
-$(function() {
-  $("#users th a, #users .pagination a").live("click", function() {
-    $.getScript(this.href);
-    return false;
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 1200,
+      pause: 'false'
+    })
   });
-  $("#users_search input").keyup(function() {
-    $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
-    return false;
-  });
-});
+</script>
